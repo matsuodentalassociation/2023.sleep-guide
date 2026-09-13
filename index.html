@@ -4,12 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>快眠のための 1日の過ごし方</title>
+
+  <!-- キャッシュバスティング（ブラウザに古い画面を記憶させない設定） -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+  
   <style>
     body {
       background-color: #f7f3ec;
@@ -20,7 +27,6 @@
       overflow-x: hidden;
     }
 
-    /* 画面幅に合わせて伸縮するタイトルフォント（センター寄せ・自然な改行） */
     .responsive-title {
       font-size: clamp(2rem, 5.5vw, 3.8rem);
       line-height: 1.2;
@@ -32,7 +38,6 @@
       white-space: nowrap;
     }
 
-    /* パンフレット品質の白いカード */
     .lp-card {
       background: #ffffff;
       border: 1.5px solid #ebdcd0;
@@ -42,7 +47,6 @@
       z-index: 10;
     }
 
-    /* タイムライン縦軸グラデーション */
     .timeline-rail {
       background: linear-gradient(180deg, 
         #ea580c 0%, 
@@ -56,7 +60,6 @@
       );
     }
 
-    /* イラスト用スタイル */
     .stage-illust {
       filter: drop-shadow(0 12px 20px rgba(60, 40, 20, 0.08));
       user-select: none;
@@ -66,25 +69,29 @@
 </head>
 <body class="antialiased selection:bg-amber-200">
 
-  <!-- ナビバー（公式準拠） -->
+  <!-- ナビバー -->
   <header class="sticky top-0 z-50 bg-[#faf6f0]/95 backdrop-blur-md border-b border-[#e5d9ca] px-4 py-3">
     <div class="max-w-5xl mx-auto flex items-center justify-between">
-      <div class="text-xs sm:text-sm font-bold text-[#4a3a30]">
-        健康づくりのための睡眠ガイド2023
+      <div class="text-xs sm:text-sm font-bold text-[#4a3a30] flex items-center gap-2">
+        <span>健康づくりのための睡眠ガイド2023</span>
+        <span class="inline-block text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-mono">最新版自動同期</span>
       </div>
-      <button onclick="window.print()" class="text-xs font-bold bg-white hover:bg-stone-50 text-[#3d2f26] border border-[#d8ccbe] px-3.5 py-1.5 rounded-full transition shadow-xs">
-        印刷 / PDF
-      </button>
+      <div class="flex items-center gap-2">
+        <button onclick="sharePage()" class="text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white px-3 py-1.5 rounded-full transition shadow-sm flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+          共有
+        </button>
+        <button onclick="window.print()" class="text-xs font-bold bg-white hover:bg-stone-50 text-[#3d2f26] border border-[#d8ccbe] px-3 py-1.5 rounded-full transition shadow-sm">
+          印刷
+        </button>
+      </div>
     </div>
   </header>
 
-
-  <!-- ========================================================
-       MAIN VISUAL : ドクターと猫が並ぶ ＆ 3大年代センター配置
-       ======================================================== -->
+  <!-- MAIN VISUAL -->
   <section class="max-w-4xl mx-auto px-4 pt-8 sm:pt-12 pb-16 text-center">
     
-    <!-- ドクター（T8BK6Lz.png）と伸び猫（wokgSm8.png）のアイキャッチ -->
+    <!-- 白衣のドクター ＋ 伸びをする猫 -->
     <div class="flex items-end justify-center gap-4 sm:gap-8 mb-6">
       <img src="https://i.imgur.com/T8BK6Lz.png" 
            alt="白衣のドクター" referrerpolicy="no-referrer"
@@ -94,7 +101,7 @@
            class="stage-illust w-24 sm:w-32 md:w-40 h-auto transform rotate-3">
     </div>
 
-    <!-- メインタイトル：幅に合わせて自然に伸縮 & センター寄せ -->
+    <!-- タイトル -->
     <h1 class="responsive-title font-black text-[#2d241e]">
       <span class="title-unit">快眠のための</span>
       <span class="title-unit">1日の過ごし方</span>
@@ -105,10 +112,8 @@
       夕方やお風呂を工夫し、夜の強い光を避けるのがポイントです。
     </p>
 
-    <!-- 3大年代サマリー（すべてセンター配置） -->
+    <!-- 3大年代サマリー（完全センター配置） -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 max-w-3xl mx-auto">
-      
-      <!-- 子ども（センター配置） -->
       <div class="lp-card p-5 border-t-4 border-t-amber-500 text-center flex flex-col items-center justify-center">
         <span class="inline-block text-xs font-black text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200 mb-2">
           子ども
@@ -117,7 +122,6 @@
         <div class="text-sm font-bold text-[#68594e] mt-0.5">中高生 8〜10h</div>
       </div>
 
-      <!-- 成人（センター配置） -->
       <div class="lp-card p-5 border-t-4 border-t-sky-500 text-center flex flex-col items-center justify-center">
         <span class="inline-block text-xs font-black text-sky-800 bg-sky-50 px-3 py-1 rounded-full border border-sky-200 mb-2">
           成人
@@ -126,7 +130,6 @@
         <div class="text-sm font-bold text-[#68594e] mt-0.5">目安 6〜8時間</div>
       </div>
 
-      <!-- 高齢者（センター配置） -->
       <div class="lp-card p-5 border-t-4 border-t-indigo-500 text-center flex flex-col items-center justify-center">
         <span class="inline-block text-xs font-black text-indigo-800 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200 mb-2">
           高齢者
@@ -134,15 +137,11 @@
         <div class="text-lg sm:text-xl font-black text-[#2d241e] mt-1">床上 8時間以内</div>
         <div class="text-sm font-bold text-[#68594e] mt-0.5">昼寝 30分以内</div>
       </div>
-
     </div>
   </section>
 
-
-  <!-- ========================================================
-       体内時計とは？
-       ======================================================== -->
-  <section class="max-w-3xl mx-auto px-4 my-14">
+  <!-- 体内時計とは？ -->
+  <section class="max-w-3xl mx-auto px-4 my-10">
     <div class="lp-card p-6 sm:p-8 border-amber-200/80 bg-amber-50/40">
       <div class="flex items-center gap-2 mb-3">
         <span class="text-amber-600 text-2xl">⏰</span>
@@ -157,12 +156,8 @@
     </div>
   </section>
 
-
-  <!-- ========================================================
-       24時間タイムライン（全10枚イラスト完全配置）
-       ======================================================== -->
+  <!-- 24時間タイムライン -->
   <section class="max-w-4xl mx-auto px-4 my-20">
-
     <div class="text-center mb-16">
       <h2 class="text-2xl sm:text-3xl font-black text-[#2d241e]">
         1日の過ごし方 実践タイムライン
@@ -170,22 +165,13 @@
     </div>
 
     <div class="relative pl-6 sm:pl-10 space-y-20 sm:space-y-28">
-
-      <!-- タイムライン縦軸レール -->
       <div class="timeline-rail absolute left-2 sm:left-4 top-4 bottom-4 w-2 rounded-full shadow-inner"></div>
 
-
-      <!-- ---------------- 1. 6:00 起床 ----------------
-           対応イラスト: カーテンを開けて朝日を浴びる女性（ikuPjkL.png）
-      ------------------------------------------------ -->
+      <!-- 1. 6:00 起床 -->
       <div class="relative flex flex-col md:flex-row items-center gap-6 sm:gap-10">
         <div class="absolute -left-6 sm:-left-10 top-2">
-          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-orange-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">
-            6h
-          </span>
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-orange-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">6h</span>
         </div>
-
-        <!-- コンテンツカード -->
         <div class="lp-card p-6 sm:p-8 border-l-8 border-l-orange-500 flex-1">
           <div class="flex items-center gap-2 mb-2">
             <span class="text-xs font-black bg-orange-100 text-orange-800 px-3 py-0.5 rounded-full">6:00 起床</span>
@@ -198,69 +184,45 @@
             朝の強い光が脳の主時計を刺激し、メラトニンの分泌を停止させます。光を浴びてから約14〜16時間後に再び眠気が促されるため、朝の光が夜の快眠スイッチになります。
           </p>
           <div class="mt-3 bg-stone-50 p-3 rounded-xl border border-stone-200 text-xs text-[#68594e]">
-            <strong>光の強さ：</strong> 室内照明（約500ルクス）ではリセットに不十分です。窓際や屋外の自然光（数千〜数万ルクス）を目に入れましょう。
+            <strong>光の強さ：</strong> 室内照明（約500ルクス）では不十分です。窓際や屋外の自然光（数千〜数万ルクス）を目に入れましょう。
           </div>
         </div>
-
-        <!-- イラスト: カーテンを開けて朝日を浴びる女性（ikuPjkL.png） -->
         <div class="w-44 sm:w-56 shrink-0 flex justify-center">
-          <img src="https://i.imgur.com/ikuPjkL.png" 
-               alt="カーテンを開けて朝日を浴びる女性" referrerpolicy="no-referrer"
-               class="stage-illust w-full h-auto">
+          <img src="https://i.imgur.com/ikuPjkL.png" alt="カーテンを開けて朝日を浴びる女性" referrerpolicy="no-referrer" class="stage-illust w-full h-auto">
         </div>
       </div>
 
-
-      <!-- ---------------- 2. 7:30 朝食 ----------------
-           対応イラスト: ご飯を食べるおじいちゃん（qieKc9u.png）
-      ------------------------------------------------ -->
+      <!-- 2. 7:30 朝食 -->
       <div class="relative flex flex-col md:flex-row-reverse items-center gap-6 sm:gap-10">
         <div class="absolute -left-6 sm:-left-10 top-2">
-          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">
-            8h
-          </span>
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">8h</span>
         </div>
-
         <div class="lp-card p-6 sm:p-8 border-l-8 border-l-amber-500 flex-1">
           <div class="flex items-center gap-2 mb-2">
             <span class="text-xs font-black bg-amber-100 text-amber-900 px-3 py-0.5 rounded-full">7:30 朝食</span>
             <span class="text-xs font-bold text-amber-700">体内時計を整える</span>
           </div>
-          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">
-            朝ごはんはきちんと食べる
-          </h3>
+          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">朝ごはんはきちんと食べる</h3>
           <p class="mt-2 text-xs sm:text-sm text-[#5a4c42] leading-relaxed">
             朝食を摂ることで内臓の時計（末梢時計）が動き出します。朝食欠食は生活リズムの夜型化を招き、睡眠の質を低下させます。たんぱく質の摂取は夜のメラトニンの原料となります。
           </p>
         </div>
-
-        <!-- イラスト: ご飯を食べるおじいちゃん（qieKc9u.png） -->
         <div class="w-40 sm:w-52 shrink-0 flex justify-center">
-          <img src="https://i.imgur.com/qieKc9u.png" 
-               alt="ご飯を食べるおじいちゃん" referrerpolicy="no-referrer"
-               class="stage-illust w-full h-auto">
+          <img src="https://i.imgur.com/qieKc9u.png" alt="ご飯を食べるおじいちゃん" referrerpolicy="no-referrer" class="stage-illust w-full h-auto">
         </div>
       </div>
 
-
-      <!-- ---------------- 3. 日中活動 ----------------
-           対応イラスト: 元気に走る男の子（iaIvxtv.png）
-      ------------------------------------------------ -->
+      <!-- 3. 日中活動 -->
       <div class="relative flex flex-col md:flex-row items-center gap-6 sm:gap-10">
         <div class="absolute -left-6 sm:-left-10 top-2">
-          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-sky-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">
-            昼
-          </span>
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-sky-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">昼</span>
         </div>
-
         <div class="lp-card p-6 sm:p-8 border-l-8 border-l-sky-500 flex-1">
           <div class="flex items-center gap-2 mb-2">
             <span class="text-xs font-black bg-sky-100 text-sky-800 px-3 py-0.5 rounded-full">日中</span>
             <span class="text-xs font-bold text-sky-700">活動量を増やす</span>
           </div>
-          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">
-            日光を浴びて体を動かす。昼寝は30分以内に
-          </h3>
+          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">日光を浴びて体を動かす。昼寝は30分以内に</h3>
           <p class="mt-2 text-xs sm:text-sm text-[#5a4c42] leading-relaxed">
             適度な運動習慣は寝付きを良くし、深い睡眠を増やします。日中に日光を浴びながら歩くなど活動量を増やしましょう。
           </p>
@@ -268,34 +230,22 @@
             <strong>昼寝の目安：</strong> 眠気がある場合は、15時前までに30分以内の仮眠にとどめます。
           </div>
         </div>
-
-        <!-- イラスト: 走る男の子（iaIvxtv.png） -->
         <div class="w-40 sm:w-52 shrink-0 flex justify-center">
-          <img src="https://i.imgur.com/iaIvxtv.png" 
-               alt="走る男の子" referrerpolicy="no-referrer"
-               class="stage-illust w-full h-auto">
+          <img src="https://i.imgur.com/iaIvxtv.png" alt="走る男の子" referrerpolicy="no-referrer" class="stage-illust w-full h-auto">
         </div>
       </div>
 
-
-      <!-- ---------------- 4. 18:30 夕食・夜食 ----------------
-           対応イラスト: 夜食を食べるおじさん（24WW0MJ.png）
-      ------------------------------------------------ -->
+      <!-- 4. 18:30 夕食 -->
       <div class="relative flex flex-col md:flex-row-reverse items-center gap-6 sm:gap-10">
         <div class="absolute -left-6 sm:-left-10 top-2">
-          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-teal-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">
-            18h
-          </span>
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-teal-600 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">18h</span>
         </div>
-
         <div class="lp-card p-6 sm:p-8 border-l-8 border-l-teal-600 flex-1">
           <div class="flex items-center gap-2 mb-2">
             <span class="text-xs font-black bg-teal-100 text-teal-800 px-3 py-0.5 rounded-full">18:30 夕食</span>
             <span class="text-xs font-bold text-teal-700">就寝2〜3時間前までに</span>
           </div>
-          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">
-            遅い夕食・夜食は避け、遅くなる日は「分食」を
-          </h3>
+          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">遅い夕食・夜食は避け、遅くなる日は「分食」を</h3>
           <p class="mt-2 text-xs sm:text-sm text-[#5a4c42] leading-relaxed">
             就寝直前の食事は胃腸の消化活動が続き、深部体温の低下を妨げて浅い眠りの原因になります。
           </p>
@@ -303,127 +253,79 @@
             <strong>分食の工夫：</strong> 夕方に軽食（おにぎり等）を食べ、夜遅くには消化の良い副菜などを少量摂るのが理想です。
           </div>
         </div>
-
-        <!-- イラスト: 夜食を食べるおじさん（24WW0MJ.png） -->
         <div class="w-40 sm:w-52 shrink-0 flex justify-center">
-          <img src="https://i.imgur.com/24WW0MJ.png" 
-               alt="夜食を食べるおじさん" referrerpolicy="no-referrer"
-               class="stage-illust w-full h-auto">
+          <img src="https://i.imgur.com/24WW0MJ.png" alt="夜食を食べるおじさん" referrerpolicy="no-referrer" class="stage-illust w-full h-auto">
         </div>
       </div>
 
-
-      <!-- ---------------- 5. 【新設】夕食後：コーヒーを飲まない ----------------
-           対応イラスト: コーヒーのイラスト（aVFpNzG.png）
-      ------------------------------------------------ -->
+      <!-- 5. 夕食後：コーヒー -->
       <div class="relative flex flex-col md:flex-row items-center gap-6 sm:gap-10">
         <div class="absolute -left-6 sm:-left-10 top-2">
-          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-800 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">
-            ☕
-          </span>
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-800 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">☕</span>
         </div>
-
         <div class="lp-card p-6 sm:p-8 border-l-8 border-l-amber-800 flex-1">
           <div class="flex items-center gap-2 mb-2">
             <span class="text-xs font-black bg-amber-100 text-amber-950 px-3 py-0.5 rounded-full">夕食後</span>
             <span class="text-xs font-bold text-amber-800">カフェインを控える</span>
           </div>
-          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">
-            夕食後はコーヒーを飲まない
-          </h3>
+          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">夕食後はコーヒーを飲まない</h3>
           <p class="mt-2 text-xs sm:text-sm text-[#5a4c42] leading-relaxed">
             カフェインには覚醒作用と利尿作用があり、体内で分解されるまでに時間がかかります（半減期3〜7時間）。
-            夕食後や就寝前のコーヒー・緑茶・エナジードリンクなどは、寝付きの悪さや夜間頻尿の原因になるため控えましょう。
+            夕食後や就寝前のコーヒー・緑茶・エナジードリンクなどは控えましょう。
           </p>
         </div>
-
-        <!-- イラスト: コーヒー（aVFpNzG.png） -->
         <div class="w-36 sm:w-48 shrink-0 flex justify-center">
-          <img src="https://i.imgur.com/aVFpNzG.png" 
-               alt="夕食後のコーヒー注意" referrerpolicy="no-referrer"
-               class="stage-illust w-full h-auto">
+          <img src="https://i.imgur.com/aVFpNzG.png" alt="コーヒー" referrerpolicy="no-referrer" class="stage-illust w-full h-auto">
         </div>
       </div>
 
-
-      <!-- ---------------- 6. 22:00 就寝前の準備 ----------------
-           対応イラスト: コップと歯ブラシを持つ猫（937W48j.png）
-      ------------------------------------------------ -->
+      <!-- 6. 22:00 就寝前の準備 -->
       <div class="relative flex flex-col md:flex-row-reverse items-center gap-6 sm:gap-10">
         <div class="absolute -left-6 sm:-left-10 top-2">
-          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">
-            22h
-          </span>
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">22h</span>
         </div>
-
         <div class="lp-card p-6 sm:p-8 border-l-8 border-l-indigo-500 flex-1">
           <div class="flex items-center gap-2 mb-2">
             <span class="text-xs font-black bg-indigo-100 text-indigo-900 px-3 py-0.5 rounded-full">22:00 就寝前</span>
             <span class="text-xs font-bold text-indigo-700">歯磨き・リラックス</span>
           </div>
-          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">
-            就寝前の準備とリラックス習慣
-          </h3>
+          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">就寝前の準備とリラックス習慣</h3>
           <p class="mt-2 text-xs sm:text-sm text-[#5a4c42] leading-relaxed">
             歯磨きを済ませ、心地よい音楽や軽いストレッチなどで心身の緊張をゆるめます。毎日の「眠る前のルーティン」を整えることで、脳に眠る合図を送ることができます。
           </p>
         </div>
-
-        <!-- イラスト: コップと歯ブラシを持つ猫（937W48j.png） -->
         <div class="w-40 sm:w-52 shrink-0 flex justify-center">
-          <img src="https://i.imgur.com/937W48j.png" 
-               alt="コップと歯ブラシを持つ猫" referrerpolicy="no-referrer"
-               class="stage-illust w-full h-auto">
+          <img src="https://i.imgur.com/937W48j.png" alt="コップと歯ブラシを持つ猫" referrerpolicy="no-referrer" class="stage-illust w-full h-auto">
         </div>
       </div>
 
-
-      <!-- ---------------- 7. 23:00 就寝前（スマホ注意） ----------------
-           対応イラスト: スマホを見る猫（lMHicy8.png）
-      ------------------------------------------------ -->
+      <!-- 7. 23:00 スマホ注意 -->
       <div class="relative flex flex-col md:flex-row items-center gap-6 sm:gap-10">
         <div class="absolute -left-6 sm:-left-10 top-2">
-          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-800 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">
-            23h
-          </span>
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-800 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">23h</span>
         </div>
-
         <div class="lp-card p-6 sm:p-8 border-l-8 border-l-indigo-800 flex-1">
           <div class="flex items-center gap-2 mb-2">
             <span class="text-xs font-black bg-slate-100 text-slate-800 px-3 py-0.5 rounded-full">23:00 就寝前</span>
             <span class="text-xs font-bold text-indigo-900">画面の光に注意</span>
           </div>
-          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">
-            強い光を避け、寝床でのスマホ操作を控える
-          </h3>
+          <h3 class="text-base sm:text-lg font-black text-[#2d241e]">強い光を避け、寝床でのスマホ操作を控える</h3>
           <p class="mt-2 text-xs sm:text-sm text-[#5a4c42] leading-relaxed">
-            照明を落とし、心身を休めます。就寝直前のスマートフォンの操作は画面の強い光で脳が覚醒してしまうため避けましょう。眠くないときは無理に寝床に入らず、自然に眠気が来てから布団に入ります。
+            照明を落とし、心身を休めます。就寝直前のスマートフォンの操作は画面の強い光で脳が覚醒してしまうため避けましょう。
           </p>
         </div>
-
-        <!-- イラスト: スマホを見る猫（lMHicy8.png） -->
         <div class="w-40 sm:w-52 shrink-0 flex justify-center">
-          <img src="https://i.imgur.com/lMHicy8.png" 
-               alt="スマホを見る猫" referrerpolicy="no-referrer"
-               class="stage-illust w-full h-auto">
+          <img src="https://i.imgur.com/lMHicy8.png" alt="スマホを見る猫" referrerpolicy="no-referrer" class="stage-illust w-full h-auto">
         </div>
       </div>
 
-
-      <!-- ---------------- 8. 24:00〜 寝室環境 ----------------
-           対応イラスト: ベッド（NY2HHob.png）
-      ------------------------------------------------ -->
+      <!-- 8. 24:00 寝室環境 -->
       <div class="relative flex flex-col md:flex-row-reverse items-center gap-6 sm:gap-10">
         <div class="absolute -left-6 sm:-left-10 top-2">
-          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-900 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">
-            24h
-          </span>
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-900 text-white font-black text-xs sm:text-sm flex items-center justify-center shadow-md ring-4 ring-[#f7f3ec]">24h</span>
         </div>
-
         <div class="rounded-3xl p-6 sm:p-8 bg-[#18152e] text-white shadow-xl border border-indigo-950 flex-1">
-          <h3 class="text-base sm:text-lg font-black text-white mb-3">
-            🌙 寝室環境づくりのポイント
-          </h3>
+          <h3 class="text-base sm:text-lg font-black text-white mb-3">🌙 寝室環境づくりのポイント</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-indigo-100">
             <div class="bg-white/5 p-3 rounded-xl border border-white/10">
               <strong class="text-amber-300 block mb-1">光：暗くする</strong>
@@ -443,23 +345,16 @@
             </div>
           </div>
         </div>
-
-        <!-- イラスト: ベッド（NY2HHob.png） -->
         <div class="w-44 sm:w-56 shrink-0 flex justify-center">
-          <img src="https://i.imgur.com/NY2HHob.png" 
-               alt="ベッド・寝室環境" referrerpolicy="no-referrer"
-               class="stage-illust w-full h-auto">
+          <img src="https://i.imgur.com/NY2HHob.png" alt="ベッド" referrerpolicy="no-referrer" class="stage-illust w-full h-auto">
         </div>
       </div>
 
     </div>
   </section>
 
-
-  <!-- ========================================================
-       年代別推奨事項（ガイド本文詳細）
-       ======================================================== -->
-  <section class="max-w-4xl mx-auto px-4 my-24">
+  <!-- 年代別推奨事項 -->
+  <section class="max-w-4xl mx-auto px-4 my-20">
     <div class="text-center mb-10">
       <h2 class="text-xl sm:text-2xl font-black text-[#2d241e]">
         年代別の推奨事項（健康づくりのための睡眠ガイド2023）
@@ -467,7 +362,6 @@
     </div>
 
     <div class="space-y-6">
-      <!-- 子ども版 -->
       <div class="lp-card p-6 sm:p-7 border-t-4 border-t-amber-500">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-stone-200">
           <h3 class="text-base sm:text-lg font-black text-[#2d241e]">こども版</h3>
@@ -491,7 +385,6 @@
         </div>
       </div>
 
-      <!-- 成人版 -->
       <div class="lp-card p-6 sm:p-7 border-t-4 border-t-sky-500">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-stone-200">
           <h3 class="text-base sm:text-lg font-black text-[#2d241e]">成人版（働く世代）</h3>
@@ -515,7 +408,6 @@
         </div>
       </div>
 
-      <!-- 高齢者版 -->
       <div class="lp-card p-6 sm:p-7 border-t-4 border-t-indigo-600">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-stone-200">
           <h3 class="text-base sm:text-lg font-black text-[#2d241e]">高齢者版（65歳以上）</h3>
@@ -541,6 +433,43 @@
     </div>
   </section>
 
+  <!-- 【新設】共有・配布用QRコードセクション -->
+  <section class="max-w-2xl mx-auto px-4 my-16 text-center">
+    <div class="lp-card p-6 sm:p-8 border-amber-300/80 bg-white shadow-xl">
+      <span class="inline-block text-xs font-black text-amber-900 bg-amber-100 px-3 py-1 rounded-full mb-3">
+        スマホでいつでも読める・患者様へ共有
+      </span>
+      <h3 class="text-lg sm:text-xl font-black text-[#2d241e] mb-2">
+        このガイドをスマートフォンで開く
+      </h3>
+      <p class="text-xs sm:text-sm text-[#68594e] mb-6">
+        スマホのカメラでQRコードを読み取ると、このWebページをそのまま手元でご覧いただけます。
+      </p>
+
+      <!-- QRコード本体 -->
+      <div class="inline-block p-4 bg-stone-50 border-2 border-[#e6d8cb] rounded-2xl shadow-inner mb-4">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://matsuodentalassociation.github.io/2023.sleep-guide/&margin=10" 
+             alt="快眠ガイド QRコード" 
+             class="w-44 h-44 sm:w-52 sm:h-52 mx-auto rounded-lg">
+      </div>
+
+      <div class="font-mono text-xs sm:text-sm text-stone-600 font-bold select-all bg-stone-100 py-2 px-3 rounded-xl max-w-md mx-auto break-all border border-stone-200">
+        https://matsuodentalassociation.github.io/2023.sleep-guide/
+      </div>
+
+      <!-- 共有＆URLコピーボタン -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mt-5">
+        <button onclick="copyCurrentUrl()" id="copy-btn" class="text-xs font-bold bg-[#3d2f26] hover:bg-stone-800 text-white px-5 py-2.5 rounded-full transition shadow-sm flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+          URLをコピー
+        </button>
+        <button onclick="sharePage()" class="text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white px-5 py-2.5 rounded-full transition shadow-sm flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+          LINE・SNSで送る
+        </button>
+      </div>
+    </div>
+  </section>
 
   <!-- フッター -->
   <footer class="max-w-4xl mx-auto px-4 pb-20">
@@ -551,5 +480,58 @@
     </div>
   </footer>
 
+  <!-- スクリプト（本番環境でのみ動作する安全設計） -->
+  <script>
+    // 1. 本番サイト（github.io）上でのみ最新コミット同期を実施
+    (function checkLatestVersion() {
+      if (!window.location.hostname.includes('github.io')) return;
+      
+      const repo = 'matsuodentalassociation/2023.sleep-guide';
+      fetch(`https://api.github.com/repos/${repo}/commits?per_page=1&_t=${Date.now()}`)
+        .then(res => res.ok ? res.json() : null)
+        .then(data => {
+          if (data && data[0] && data[0].sha) {
+            const latestSha = data[0].sha.substring(0, 7);
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('v') !== latestSha) {
+              urlParams.set('v', latestSha);
+              window.location.replace(`${window.location.pathname}?${urlParams.toString()}`);
+            }
+          }
+        })
+        .catch(() => {});
+    })();
+
+    // 2. URLコピー
+    function copyCurrentUrl() {
+      const targetUrl = 'https://matsuodentalassociation.github.io/2023.sleep-guide/';
+      navigator.clipboard.writeText(targetUrl).then(() => {
+        const btn = document.getElementById('copy-btn');
+        const original = btn.innerHTML;
+        btn.innerHTML = '✓ コピー完了！';
+        btn.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.classList.remove('bg-emerald-600');
+        }, 2000);
+      }).catch(() => {
+        prompt('URLをコピーしてください:', targetUrl);
+      });
+    }
+
+    // 3. Web Share API
+    function sharePage() {
+      const shareData = {
+        title: '快眠のための 1日の過ごし方',
+        text: '健康づくりのための睡眠ガイド2023に基づく快眠タイムラインです。',
+        url: 'https://matsuodentalassociation.github.io/2023.sleep-guide/'
+      };
+      if (navigator.share) {
+        navigator.share(shareData).catch(() => {});
+      } else {
+        copyCurrentUrl();
+      }
+    }
+  </script>
 </body>
 </html>
