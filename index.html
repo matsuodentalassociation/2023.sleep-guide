@@ -9,16 +9,14 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <title>【講演お土産版】今日からできる現実的睡眠セルフケア</title>
+  <title>【睡眠セルフケア】今日からできる現実的睡眠セルフケア</title>
 
   <!-- キャッシュバスター：URLアクセス時に常に最新版を保証するスクリプト -->
   <script>
     (function() {
-      // GitHub Pages等のCDNキャッシュを回避するためのタイムスタンプ検証
       const currentUrl = new URL(window.location.href);
       const lastLoaded = sessionStorage.getItem('last_load_ts');
       const now = Date.now();
-      // 5分以上経過した訪問、または新規セッションの場合はキャッシュをクリアして再検証
       if (!lastLoaded || (now - parseInt(lastLoaded)) > 300000) {
         sessionStorage.setItem('last_load_ts', now);
       }
@@ -57,7 +55,7 @@
       100% { box-shadow: none; border-color: #334155; }
     }
 
-    /* 印刷時も配慮（仕様書v1.1.0規定） */
+    /* 印刷時配慮 */
     @media print {
       header nav, .no-print, button {
         display: none !important;
@@ -81,14 +79,11 @@
   <div class="w-full max-w-lg bg-slate-950 min-h-screen border-x border-slate-800 flex flex-col justify-between shadow-2xl">
 
     <!-- ==========================================
-         1. FV / HOOK セクション
+         1. FV / HOOK セクション（バッジ削除・上部余白調整）
     ========================================== -->
     <section class="p-6 sm:p-8 pt-10 text-center relative overflow-hidden border-b border-slate-800">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-400/30 text-indigo-300 text-xs font-semibold mb-5">
-        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-        講演参加者限定 持ち帰りシート
-      </div>
       
+      <!-- タイトル -->
       <h1 class="text-[1.65rem] sm:text-3xl font-extrabold tracking-wide text-slate-200 leading-snug">
         「早く寝なきゃ」を、<br>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-amber-200 to-amber-300 inline-block mt-1">今夜からやめませんか？</span>
@@ -99,7 +94,7 @@
         <strong class="text-slate-300 font-bold">生活リズムを崩さずに脳と体を回復させる知恵</strong>
       </p>
 
-      <!-- 対象者セレクター（JSによるスムーズスクロール・ホワイトアウト完全防止） -->
+      <!-- 対象者セレクター -->
       <div class="mt-6 p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-left">
         <p class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
           <span>▼</span> あなたの現在の状態は？（タップで移動）
@@ -379,10 +374,10 @@
         </button>
       </div>
 
-      <!-- クレジット＆テロップ領域 -->
-      <div class="text-[10px] text-slate-500 pt-3 border-t border-slate-900 space-y-1 leading-relaxed">
-        <p>出典：厚生労働省「健康づくりのための睡眠ガイド2023」「国民健康・栄養調査」・日本睡眠学会知見に基づく</p>
-        <p class="tracking-wider text-slate-500">
+      <!-- クレジット＆テロップ領域（最下段フォントサイズ text-[9px] & text-slate-600 に完全統一） -->
+      <div class="pt-3 border-t border-slate-900 space-y-1 text-center">
+        <p class="text-[9px] text-slate-600">出典：厚生労働省「健康づくりのための睡眠ガイド2023」「国民健康・栄養調査」・日本睡眠学会知見に基づく</p>
+        <p class="text-[9px] text-slate-600 tracking-wider">
           Produced by MDA &nbsp;|&nbsp; Supervised by Dr. Etsuko Hirase (Mizumoto Clinic)
         </p>
         <p class="text-[9px] text-slate-600">© 2026 Comprehensive Sleep Knowledge Project</p>
